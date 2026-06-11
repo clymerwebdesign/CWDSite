@@ -111,9 +111,10 @@ a { color: inherit; text-decoration: none; }
   max-width: var(--maxw); margin: 0 auto; padding: 16px 32px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.nav-logo { height: 32px; width: auto; display: block; transition: opacity .3s; }
-.nav-logo.is-white { position: absolute; }
-.nav-logo-link { position: relative; display: inline-flex; min-width: 160px; }
+.nav-logo-link { display: inline-flex; align-items: center; gap: 10px; }
+.nav-icon-wrap { position: relative; width: 28px; height: 28px; flex-shrink: 0; }
+.nav-icon { height: 28px; width: auto; display: block; position: absolute; top: 0; left: 0; transition: opacity .3s; }
+.nav-wordmark { font-size: 16px; font-weight: 800; letter-spacing: -0.015em; line-height: 1; white-space: nowrap; transition: color .3s; }
 .nav-links { display: flex; align-items: center; gap: 30px; }
 .nav-links a.nav-link {
   font-size: 14px; font-weight: 600; letter-spacing: 0.01em;
@@ -127,8 +128,9 @@ a { color: inherit; text-decoration: none; }
 
 /* top state (over navy hero) */
 .nav[data-state="top"] { background: transparent; }
-.nav[data-state="top"] .nav-logo.is-white { opacity: 1; }
-.nav[data-state="top"] .nav-logo.is-navy  { opacity: 0; }
+.nav[data-state="top"] .nav-icon.is-white { opacity: 1; }
+.nav[data-state="top"] .nav-icon.is-navy  { opacity: 0; }
+.nav[data-state="top"] .nav-wordmark { color: rgba(255,255,255,0.95); }
 .nav[data-state="top"] .nav-link { color: rgba(255,255,255,0.86); }
 .nav[data-state="top"] .nav-link:hover { color: #fff; }
 
@@ -140,8 +142,9 @@ a { color: inherit; text-decoration: none; }
   border-bottom-color: var(--border);
   box-shadow: 0 6px 24px -18px rgba(13,27,62,0.4);
 }
-.nav[data-state="scrolled"] .nav-logo.is-white { opacity: 0; }
-.nav[data-state="scrolled"] .nav-logo.is-navy  { opacity: 1; }
+.nav[data-state="scrolled"] .nav-icon.is-white { opacity: 0; }
+.nav[data-state="scrolled"] .nav-icon.is-navy  { opacity: 1; }
+.nav[data-state="scrolled"] .nav-wordmark { color: var(--navy); }
 .nav[data-state="scrolled"] .nav-link { color: var(--navy); }
 
 .nav-cta { padding: 10px 18px; font-size: 14px; }
@@ -154,28 +157,27 @@ a { color: inherit; text-decoration: none; }
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--navy); color: rgba(255,255,255,0.82);
-  position: relative; overflow: hidden;
-}
-.footer::before {
-  content: ""; position: absolute; top: -40%; left: 50%; transform: translateX(-50%);
-  width: 700px; height: 400px;
-  background: radial-gradient(circle, rgba(42,111,219,0.25), transparent 65%);
-  pointer-events: none;
+  background: rgba(10,18,40,0.72);
+  backdrop-filter: blur(28px) saturate(1.5);
+  -webkit-backdrop-filter: blur(28px) saturate(1.5);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.82);
+  position: relative;
 }
 .footer-inner {
-  position: relative; max-width: var(--maxw); margin: 0 auto; padding: 56px 32px 40px;
+  max-width: var(--maxw); margin: 0 auto; padding: 52px 32px 36px;
   display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;
 }
-.footer-logo { height: 40px; width: auto; }
-.footer-contact { display: flex; align-items: center; gap: 22px; font-size: 15px; flex-wrap: wrap; }
-.footer-contact a { color: rgba(255,255,255,0.9); transition: color .2s; }
-.footer-contact a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
-.footer-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.35); }
-.footer-location { color: rgba(255,255,255,0.9); font-size: 15px; }
+.footer-logo { height: 32px; width: auto; }
+.footer-contact { display: flex; align-items: center; gap: 20px; font-size: 14.5px; flex-wrap: wrap; }
+.footer-item { display: inline-flex; align-items: center; gap: 7px; color: rgba(255,255,255,0.82); transition: color .2s; }
+.footer-item svg { opacity: 0.65; flex-shrink: 0; }
+a.footer-item:hover { color: #fff; }
+a.footer-item:hover svg { opacity: 1; }
+.footer-dot { width: 3px; height: 3px; border-radius: 50%; background: rgba(255,255,255,0.28); }
 .footer-copy {
-  position: relative; max-width: var(--maxw); margin: 0 auto;
-  padding: 0 32px 34px; font-size: 13px; color: rgba(255,255,255,0.5);
+  max-width: var(--maxw); margin: 0 auto;
+  padding: 0 32px 30px; font-size: 12.5px; color: rgba(255,255,255,0.42);
 }
 
 /* ---------- Scroll reveal ---------- */

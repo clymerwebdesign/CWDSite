@@ -15,12 +15,16 @@
 <nav class="nav" data-state="top" id="nav">
   <div class="nav-inner">
     <a href="index.html" class="nav-logo-link" aria-label="Clymer Web Design home">
-      <img src="assets/cwd-logo-white.png" alt="Clymer Web Design" class="nav-logo is-white" />
-      <img src="assets/cwd-logo-navy.png" alt="Clymer Web Design" class="nav-logo is-navy" />
+      <span class="nav-icon-wrap">
+        <img src="assets/cwd-icon-white.png" alt="" class="nav-icon is-white" />
+        <img src="assets/cwd-icon-navy.png" alt="" class="nav-icon is-navy" />
+      </span>
+      <span class="nav-wordmark">Clymer Web Design</span>
     </a>
     <div class="nav-links">
-      <a href="#work" class="nav-link nav-hideable">Work</a>
       <a href="#about" class="nav-link nav-hideable">About</a>
+      <a href="#work" class="nav-link nav-hideable">Work</a>
+      <a href="contact.html" class="nav-link nav-hideable">Contact</a>
       <a href="quote.html" class="btn btn-navy nav-cta">Get a Quote</a>
     </div>
   </div>
@@ -101,8 +105,9 @@
       person who designs the site, writes the code, and gets you online in about a week.
     </p>
     <div class="stat-row" data-reveal data-reveal-delay="3">
-      <div class="stat glass"><strong>&lt;&nbsp;1&nbsp;wk</strong><span>turnaround</span></div>
-      <div class="stat glass"><strong>$250+</strong><span>starting price</span></div>
+      <span class="stat-badge">&lt; 1 Week Turnaround</span>
+      <span class="stat-badge">$250+ Starting Price</span>
+      <span class="stat-badge">Free Revisions</span>
     </div>
   </div>
 </section>
@@ -118,7 +123,7 @@
     <div class="port-grid">
       <a class="port-card glass" href="https://jthhonorsociety.org" target="_blank" rel="noopener" data-reveal data-tilt>
         <div class="port-shot">
-          <img src="assets/proj-nhs.png" alt="NHS chapter website" />
+          <img src="https://res.cloudinary.com/dpbqkc2yj/image/upload/v1781141516/Screenshot_2026-06-10_at_8.27.00_PM_dllcgi.png" alt="NHS chapter website" />
           <div class="port-hover"><span class="port-visit">Visit site <span class="arrow">↗</span></span></div>
         </div>
         <div class="port-meta">
@@ -129,7 +134,7 @@
 
       <a class="port-card glass" href="https://prestononwheels.com" target="_blank" rel="noopener" data-reveal data-reveal-delay="1" data-tilt>
         <div class="port-shot">
-          <img src="assets/proj-mechanic.png" alt="Preston on Wheels" />
+          <img src="https://res.cloudinary.com/dpbqkc2yj/image/upload/v1781141516/Screenshot_2026-06-10_at_8.27.12_PM_ksqzp8.png" alt="Preston on Wheels" />
           <div class="port-hover"><span class="port-visit">Visit site <span class="arrow">↗</span></span></div>
         </div>
         <div class="port-meta">
@@ -140,7 +145,7 @@
 
       <a class="port-card glass" href="https://hoggardbetaclub.org" target="_blank" rel="noopener" data-reveal data-reveal-delay="2" data-tilt>
         <div class="port-shot">
-          <img src="assets/proj-beta.png" alt="Beta Club website" />
+          <img src="https://res.cloudinary.com/dpbqkc2yj/image/upload/v1781141514/Screenshot_2026-06-10_at_8.26.42_PM_bcdh1d.png" alt="Beta Club website" />
           <div class="port-hover"><span class="port-visit">Visit site <span class="arrow">↗</span></span></div>
         </div>
         <div class="port-meta">
@@ -163,7 +168,7 @@
     <div class="section-head">
       <p class="eyebrow" style="color:#9DB4E8" data-reveal>Pricing</p>
       <h2 class="section-title" style="color:#fff" data-reveal data-reveal-delay="1">Simple, honest packages</h2>
-      <p class="pricing-sub" data-reveal data-reveal-delay="2">Every site is custom-built. Pick a starting point — we'll dial in the exact price together.</p>
+      <p class="pricing-sub" data-reveal data-reveal-delay="2">Every site is custom-built. Pick a starting point and we'll dial in the exact price together.</p>
     </div>
 
     <div class="price-grid">
@@ -198,13 +203,22 @@
 <!-- ===================== FOOTER ===================== -->
 <footer class="footer">
   <div class="footer-inner">
-    <img src="assets/cwd-logo-white.png" alt="Clymer Web Design" class="footer-logo" />
+    <img src="assets/cwd-icon-white.png" alt="Clymer Web Design" class="footer-logo" />
     <div class="footer-contact">
-      <span class="footer-location">📍 Wilmington, NC</span>
+      <span class="footer-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Wilmington, NC
+      </span>
       <span class="footer-dot"></span>
-      <a href="mailto:clymerwebdesign@gmail.com">clymerwebdesign@gmail.com</a>
+      <a href="mailto:clymerwebdesign@gmail.com" class="footer-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+        clymerwebdesign@gmail.com
+      </a>
       <span class="footer-dot"></span>
-      <a href="https://instagram.com/clymerwebdesign" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://instagram.com/clymerwebdesign" target="_blank" rel="noopener" class="footer-item">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
     </div>
   </div>
   <p class="footer-copy">© 2026 Clymer Web Design · Wilmington, NC</p>

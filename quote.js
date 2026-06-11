@@ -25,7 +25,7 @@
       key: 'projectType', type: 'single',
       q: 'What are you looking for?',
       sub: "Let's figure out the right starting point for you.",
-      chatQ: "Hey! Quick question — are you starting fresh or replacing something existing?",
+      chatQ: "Hey! Quick question: are you starting fresh or replacing something existing?",
       options: [
         { v: 'new',     label: 'Brand new site',     icon: 'plus'    },
         { v: 'replace', label: 'Replace an old site', icon: 'refresh' }
@@ -34,7 +34,7 @@
     {
       key: 'pages', type: 'single',
       q: 'How many pages do you think you need?',
-      sub: "A rough guess is totally fine — we'll dial it in together.",
+      sub: "A rough guess is totally fine. We'll dial it in together.",
       chatQ: "Got it! Roughly how many pages are we talking?",
       options: [
         { v: 's', label: '1–3 pages',  icon: 'pages' },
@@ -136,13 +136,17 @@
           var v = btn.getAttribute('data-v');
           if (s.type === 'single') {
             state.answers[s.key] = v;
-            guided.render();
-            setTimeout(guided.advance, 260);
+            card.querySelectorAll('.g-opt').forEach(function (b) {
+              b.classList.toggle('selected', b.getAttribute('data-v') === v);
+            });
+            setTimeout(guided.advance, 300);
           } else {
             var arr = state.answers[s.key];
             var i = arr.indexOf(v);
             if (i > -1) arr.splice(i, 1); else arr.push(v);
-            guided.render();
+            btn.classList.toggle('selected', arr.indexOf(v) > -1);
+            var hint = card.querySelector('.g-hint');
+            if (hint) hint.textContent = arr.length ? arr.length + ' selected' : 'Select all that apply';
           }
         });
       });
@@ -187,7 +191,7 @@
       setProgress((state.step + 0.2) / STEPS.length);
       if (!chat.started) {
         chat.started = true;
-        chat.botSay("Hey there! 👋 Let's build you a quick estimate — should only take a minute.", function () {
+        chat.botSay("Hey there! 👋 Let's build you a quick estimate. Should only take a minute.", function () {
           chat.askStep();
         });
       } else {
@@ -288,7 +292,7 @@
           chat.botSay(acks[Math.floor(Math.random() * acks.length)], function () { chat.askStep(); });
         } else { chat.askStep(); }
       } else {
-        chat.botSay("Awesome — that's everything I need. Crunching your estimate… ✨", function () {
+        chat.botSay("Awesome, that's everything I need. Crunching your estimate… ✨", function () {
           setTimeout(showResult, 600);
         });
       }
@@ -318,12 +322,12 @@
           '<div class="r-est-price">' + money(e.lo) + '<span class="dash">+</span></div>' +
           '<div class="r-est-meta"><span>' + projectLabel + '</span><span>' + pagesLabel + '</span>' + extraNote + '<span>Custom domain included</span></div>' +
         '</div>' +
-        '<p class="r-note">This is a starting-point estimate — exact pricing is confirmed before any work begins. Fill in your details and I\'ll get back to you within a day.</p>' +
+        '<p class="r-note">This is a starting-point estimate. Exact pricing is confirmed before any work begins. Fill in your details and I\'ll get back to you within a day.</p>' +
         '<form class="r-form" id="q-form" netlify name="quote" method="POST" data-netlify="true">' +
           '<input type="hidden" name="form-name" value="quote">' +
           '<input type="hidden" name="estimate" value="' + money(e.lo) + '+">' +
           '<p class="r-form-title">Lock in your quote</p>' +
-          '<p class="r-form-sub">No commitment — just starts the conversation.</p>' +
+          '<p class="r-form-sub">No commitment. Just starts the conversation.</p>' +
           '<div class="r-field"><label>Your name</label><input class="r-input" name="name" required placeholder="Jordan Smith"></div>' +
           '<div class="r-field"><label>Phone or email</label><input class="r-input" name="contact" required placeholder="you@example.com"></div>' +
           '<div class="r-field"><label>Anything you\'d like to add <span style="text-transform:none;font-weight:600;color:var(--muted)">(optional)</span></label><textarea class="r-textarea" name="message" placeholder="Tell me a bit about your business or any ideas you have…"></textarea></div>' +
@@ -334,7 +338,22 @@
     var form = document.getElementById('q-form');
     form.addEventListener('submit', function (ev) {
       ev.preventDefault();
-      showThanks(form.name.value || 'there');
+      var btn = form.querySelector('.r-submit');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      var payload = {
+        name: form.name.value,
+        contact: form.contact.value,
+        message: form.message ? form.message.value : '',
+        estimate: money(estimate().lo) + '+',
+        _subject: 'New quote request from ' + (form.name.value || 'website')
+      };
+      fetch('https://formsubmit.co/ajax/clymerwebdesign@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function () { showThanks(form.name.value || 'there'); })
+      .catch(function () { showThanks(form.name.value || 'there'); });
     });
     document.getElementById('q-restart').addEventListener('click', restart);
   }
