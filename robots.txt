@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serene-youtiao-db730c.netlify.app/sitemap.xml

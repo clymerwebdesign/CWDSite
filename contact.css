@@ -76,11 +76,7 @@ a.contact-card-value:hover { color: var(--blue); }
   border-radius: var(--radius-card);
   position: relative;
 }
-.timing-grid::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit;
-  background: linear-gradient(160deg, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0) 38%);
-  pointer-events: none;
-}
+.timing-grid::after { display: none; }
 .timing-item { display: flex; flex-direction: column; gap: 4px; }
 .timing-label {
   font-size: 11px; font-weight: 700; text-transform: uppercase;
@@ -172,11 +168,7 @@ details[open] .faq-q::after { transform: rotate(45deg); }
 .form-wrap::after { display: none; }
 
 /* ---------- reveal animation (shared) ---------- */
-[data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity .6s ease, transform .6s ease; }
-[data-reveal][data-reveal-delay="1"] { transition-delay: .1s; }
-[data-reveal][data-reveal-delay="2"] { transition-delay: .2s; }
-[data-reveal][data-reveal-delay="3"] { transition-delay: .3s; }
-[data-reveal].in { opacity: 1; transform: none; }
+[data-reveal] { opacity: 1; transform: none; transition: none; }
 
 /* ---------- responsive ---------- */
 @media (max-width: 760px) {
@@ -188,8 +180,8 @@ details[open] .faq-q::after { transform: rotate(45deg); }
   .form-section { padding: 0 0 60px; }
   .form-wrap { padding: 28px 20px 24px; }
   .cf-row { grid-template-columns: 1fr; }
-  .faq-section { padding: 0 0 72px; }
-  .faq-q { font-size: 15px; padding: 18px 2px; }
+  .faq-section { padding-bottom: 72px; }
+  .faq-q { font-size: 15px; }
 }
 @media (max-width: 480px) {
   .contact-hero { padding: 86px 0 28px; }
@@ -200,7 +192,8 @@ details[open] .faq-q::after { transform: rotate(45deg); }
   .timing-section { padding: 0 0 56px; }
   .form-wrap { padding: 24px 16px 20px; }
   .form-title { font-size: 22px; }
-  .faq-section { padding: 0 0 64px; }
-  .faq-q { padding: 16px 0; gap: 16px; font-size: 14.5px; }
+  .faq-section { padding-bottom: 64px; }
+  .faq-q { padding: 16px 4px; gap: 16px; font-size: 14.5px; }
+  .faq-a { padding: 0 4px 16px; }
   .faq-a p { font-size: 14px; }
 }
