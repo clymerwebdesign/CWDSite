@@ -255,8 +255,8 @@
     });
   }
   function showSuccess() {
-    if (form) form.hidden = true;
-    if (successEl) successEl.hidden = false;
+    if (form) form.style.display = 'none';
+    if (successEl) { successEl.hidden = false; successEl.removeAttribute('hidden'); }
   }
 
   /* FAQ accordion — ensure only CSS handles it (no JS needed for details/summary) */

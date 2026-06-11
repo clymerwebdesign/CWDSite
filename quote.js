@@ -340,12 +340,18 @@
       ev.preventDefault();
       var btn = form.querySelector('.r-submit');
       if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      var extrasLabels = state.answers.extras.length
+        ? state.answers.extras.map(function (v) { return labelFor(STEPS[2], v); }).join(', ')
+        : 'None';
       var payload = {
         name: form.name.value,
         contact: form.contact.value,
-        message: form.message ? form.message.value : '',
+        project_type: labelFor(STEPS[0], state.answers.projectType) || 'Not specified',
+        pages: labelFor(STEPS[1], state.answers.pages) || 'Not specified',
+        extras: extrasLabels,
         estimate: money(estimate().lo) + '+',
-        _subject: 'New quote request from ' + (form.name.value || 'website')
+        message: form.message ? form.message.value : '',
+        _subject: 'Quote request — ' + (form.name.value || 'visitor') + ' · ' + money(estimate().lo) + '+'
       };
       fetch('https://formsubmit.co/ajax/clymerwebdesign@gmail.com', {
         method: 'POST',

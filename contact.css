@@ -143,7 +143,7 @@ a.contact-card-value:hover { color: var(--blue); }
 /* ---------- FAQ ---------- */
 .faq-section { padding: 0 0 100px; }
 .faq-head { margin-bottom: 36px; }
-.faq-list { max-width: 740px; display: flex; flex-direction: column; }
+.faq-list { max-width: 740px; display: flex; flex-direction: column; margin: 0 auto; }
 .faq-item {
   border-bottom: 1px solid var(--border);
 }
@@ -177,9 +177,24 @@ details[open] .faq-q::after { transform: rotate(45deg); }
 
 /* ---------- responsive ---------- */
 @media (max-width: 760px) {
-  .contact-hero { padding: 100px 0 40px; }
+  .contact-hero { padding: 96px 0 36px; }
+  .contact-title { font-size: 38px; }
   .contact-cards { grid-template-columns: 1fr; }
   .timing-grid { grid-template-columns: 1fr; padding: 28px 24px; gap: 28px; }
-  .form-wrap { padding: 32px 24px 28px; }
+  .timing-value { font-size: 24px; }
+  .form-section { padding: 0 0 60px; }
+  .form-wrap { padding: 28px 20px 24px; }
   .cf-row { grid-template-columns: 1fr; }
+  .faq-section { padding: 0 0 72px; }
+  .faq-q { font-size: 15px; padding: 18px 2px; }
+}
+@media (max-width: 480px) {
+  .contact-hero { padding: 86px 0 28px; }
+  .contact-title { font-size: 32px; }
+  .contact-subtitle { font-size: 16px; }
+  .contact-cards-section { padding: 0 0 48px; }
+  .contact-card { padding: 22px 20px 20px; }
+  .timing-section { padding: 0 0 56px; }
+  .form-wrap { padding: 24px 16px 20px; }
+  .form-title { font-size: 22px; }
 }

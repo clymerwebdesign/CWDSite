@@ -83,17 +83,6 @@
 .hero-cta-btn { font-size: 16px; padding: 16px 28px; }
 .hero-note { font-size: 13px; color: rgba(255,255,255,0.55); margin: 16px 0 0; }
 
-.scroll-hint { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); z-index: 2; }
-.scroll-hint span {
-  display: block; width: 1.5px; height: 54px;
-  background: rgba(255,255,255,0.18); border-radius: 1px; overflow: hidden; position: relative;
-}
-.scroll-hint span::after {
-  content: ""; position: absolute; left: 0; right: 0; height: 40%;
-  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.75), transparent);
-  animation: scrollFlow 2.8s ease-in-out infinite;
-}
-@keyframes scrollFlow { 0% { transform: translateY(-100%); } 100% { transform: translateY(350%); } }
 
 @keyframes fadeDown { from { opacity: 0; transform: translateY(-16px); } to { opacity: 1; transform: none; } }
 @keyframes fadeUp   { from { opacity: 0; transform: translateY(16px); }  to { opacity: 1; transform: none; } }
@@ -212,9 +201,25 @@
 }
 @media (max-width: 768px) {
   .nav-hideable { display: none; }
-  .hero { padding: 110px 16px 56px; }
-  .tag { font-size: 33px; }
+  .hero { padding: 96px 16px 48px; }
+  .tag { font-size: 30px; }
+  .sep { width: 22px; }
   .port-grid { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+  .port-shot { height: 180px; }
+  .about-wrap { padding: 0 16px; }
   .about-body { font-size: 16.5px; }
-  .stat { padding: 14px 18px; min-width: 100px; }
+  .stat-row { gap: 9px; }
+  .stat-badge { font-size: 13px; padding: 11px 16px; }
+}
+@media (max-width: 600px) {
+  .hero { padding: 90px 12px 40px; }
+  .hero-headline { font-size: 34px; }
+  .tag { font-size: 26px; }
+  .hero-cta-btn { font-size: 15px; padding: 14px 22px; }
+  .about-title { font-size: 30px; }
+  .about-body { font-size: 16px; }
+  .stat-badge { font-size: 12.5px; padding: 10px 14px; }
+  .section-head { margin-bottom: 36px; }
+  .price-card { padding: 26px 22px 24px; }
+  .price-amt { font-size: 44px; }
 }
