@@ -27,8 +27,17 @@
       <a href="contact.html" class="nav-link nav-hideable">Contact</a>
       <a href="quote.html" class="btn btn-navy nav-cta">Get a Quote</a>
     </div>
+    <button class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+<div class="nav-mobile-overlay" id="nav-mobile-overlay" aria-hidden="true">
+  <a href="#about" class="nav-mobile-link">About</a>
+  <a href="#work" class="nav-mobile-link">Work</a>
+  <a href="contact.html" class="nav-mobile-link">Contact</a>
+  <a href="quote.html" class="btn btn-white nav-mobile-cta">Get a Quote <span class="arrow">→</span></a>
+</div>
 
 <!-- ===================== HERO ===================== -->
 <header class="hero" data-screen-label="Hero">
@@ -214,7 +223,7 @@
         clymerwebdesign@gmail.com
       </a>
       <span class="footer-dot"></span>
-      <a href="https://instagram.com/clymerwebdesign" target="_blank" rel="noopener" class="footer-item">
+      <a href="https://www.instagram.com/clymerwebdesign?igsh=ZjJjZ2h2NmtlMG9u&utm_source=qr" target="_blank" rel="noopener" class="footer-item">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
         Instagram
       </a>
@@ -223,6 +232,7 @@
   <p class="footer-copy">© 2026 Clymer Web Design · Wilmington, NC</p>
 </footer>
 
+<script src="nav.js"></script>
 <script src="landing.js"></script>
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>

@@ -212,7 +212,9 @@
   .stat-badge { font-size: 13px; padding: 11px 16px; }
 }
 @media (max-width: 600px) {
-  .hero { padding: 90px 12px 40px; }
+  .hero { padding: 90px 12px 40px; justify-content: flex-start; gap: 32px; min-height: 100svh; }
+  .tickers { flex: 0 0 auto; margin: 0; }
+  .hero-cta { margin-top: 0; }
   .hero-headline { font-size: 34px; }
   .tag { font-size: 26px; }
   .hero-cta-btn { font-size: 15px; padding: 14px 22px; }

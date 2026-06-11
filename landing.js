@@ -57,26 +57,6 @@
     });
   }
 
-  /* ---- Ticker: slow on hover, resume on leave — no position jump ---- */
-  var tickerArea = document.querySelector('.tickers');
-  if (tickerArea && !reduce) {
-    var tracks = tickerArea.querySelectorAll('.ticker-track');
-    var BASE = 46, SLOW = 80;
-    var tDur = BASE, tRef = performance.now() / 1000, tProg = 0;
-    function setTickerSpeed(newDur) {
-      var now = performance.now() / 1000;
-      var progress = (tProg + (now - tRef) / tDur) % 1;
-      var delay = -(progress * newDur);
-      tracks.forEach(function (t) {
-        t.style.animationDuration = newDur + 's';
-        t.style.animationDelay = delay + 's';
-      });
-      tDur = newDur; tRef = now; tProg = progress;
-    }
-    tickerArea.addEventListener('mouseenter', function () { setTickerSpeed(SLOW); });
-    tickerArea.addEventListener('mouseleave', function () { setTickerSpeed(BASE); });
-  }
-
   /* ---- Pause tickers when tab hidden (perf) ---- */
   document.addEventListener('visibilitychange', function () {
     var tracks = document.querySelectorAll('.ticker-track');
